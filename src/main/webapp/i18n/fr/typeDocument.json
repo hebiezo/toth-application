@@ -1,0 +1,10 @@
+{
+  "tothApplicationApp": {
+    "TypeDocument": {
+      "null": "",
+      "COURSE": "COURSE",
+      "EXERCISE": "EXERCISE",
+      "ABSENCE": "ABSENCE"
+    }
+  }
+}
