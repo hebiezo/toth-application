@@ -15,6 +15,12 @@
                            formControlName="title"/>
                 </div>
 
+                <div class="form-group">
+                    <label jhiTranslate="tothApplicationApp.cCP.formation" for="field_formations">Formation</label>
+                    <select class="form-control" id="field_formations" multiple name="formations" formControlName="formations">
+                        <option [ngValue]="getSelected(editForm.get('formations').value, formationOption)" *ngFor="let formationOption of formations; trackBy: trackFormationById">{{formationOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

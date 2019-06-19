@@ -53,6 +53,15 @@ public class CCPServiceImpl implements CCPService {
         return cCPRepository.findAll(pageable);
     }
 
+    /**
+     * Get all the cCPS with eager load of many-to-many relationships.
+     *
+     * @return the list of entities.
+     */
+    public Page<CCP> findAllWithEagerRelationships(Pageable pageable) {
+        return cCPRepository.findAllWithEagerRelationships(pageable);
+    }
+    
 
     /**
      * Get one cCP by id.
@@ -64,7 +73,7 @@ public class CCPServiceImpl implements CCPService {
     @Transactional(readOnly = true)
     public Optional<CCP> findOne(Long id) {
         log.debug("Request to get CCP : {}", id);
-        return cCPRepository.findById(id);
+        return cCPRepository.findOneWithEagerRelationships(id);
     }
 
     /**

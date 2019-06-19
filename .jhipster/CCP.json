@@ -9,6 +9,14 @@
     "relationships": [
         {
             "relationshipType": "many-to-many",
+            "otherEntityName": "formation",
+            "otherEntityRelationshipName": "cCP",
+            "relationshipName": "formation",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
             "otherEntityName": "document",
             "otherEntityRelationshipName": "cCP",
             "relationshipName": "document",
@@ -16,7 +24,7 @@
             "ownerSide": false
         }
     ],
-    "changelogDate": "20190619080518",
+    "changelogDate": "20190619202807",
     "entityTableName": "ccp",
     "dto": "no",
     "pagination": "pagination",

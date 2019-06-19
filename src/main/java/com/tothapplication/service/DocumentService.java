@@ -2,12 +2,9 @@ package com.tothapplication.service;
 
 import com.tothapplication.domain.Document;
 
-import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.mail.Multipart;
 import java.util.Optional;
 
 /**
@@ -52,9 +49,4 @@ public interface DocumentService {
      * @param id the id of the entity.
      */
     void delete(Long id);
-
-
-    public Resource loadFileAsResource(Long id);
-
-    public String storeFile(Long id, MultipartFile file);
 }

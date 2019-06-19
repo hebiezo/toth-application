@@ -25,7 +25,7 @@
             "ownerSide": true
         }
     ],
-    "changelogDate": "20190619080517",
+    "changelogDate": "20190619202806",
     "entityTableName": "document",
     "dto": "no",
     "pagination": "pagination",

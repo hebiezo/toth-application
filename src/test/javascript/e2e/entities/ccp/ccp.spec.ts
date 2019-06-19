@@ -39,7 +39,10 @@ describe('CCP e2e test', () => {
     const nbButtonsBeforeCreate = await cCPComponentsPage.countDeleteButtons();
 
     await cCPComponentsPage.clickOnCreateButton();
-    await promise.all([cCPUpdatePage.setTitleInput('title')]);
+    await promise.all([
+      cCPUpdatePage.setTitleInput('title')
+      // cCPUpdatePage.formationSelectLastOption(),
+    ]);
     expect(await cCPUpdatePage.getTitleInput()).to.eq('title', 'Expected Title value to be equals to title');
     await cCPUpdatePage.save();
     expect(await cCPUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

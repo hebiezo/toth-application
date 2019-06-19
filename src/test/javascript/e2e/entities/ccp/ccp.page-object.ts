@@ -27,6 +27,7 @@ export class CCPUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
   titleInput = element(by.id('field_title'));
+  formationSelect = element(by.id('field_formation'));
 
   async getPageTitle() {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -38,6 +39,25 @@ export class CCPUpdatePage {
 
   async getTitleInput() {
     return await this.titleInput.getAttribute('value');
+  }
+
+  async formationSelectLastOption(timeout?: number) {
+    await this.formationSelect
+      .all(by.tagName('option'))
+      .last()
+      .click();
+  }
+
+  async formationSelectOption(option) {
+    await this.formationSelect.sendKeys(option);
+  }
+
+  getFormationSelect(): ElementFinder {
+    return this.formationSelect;
+  }
+
+  async getFormationSelectedOption() {
+    return await this.formationSelect.element(by.css('option:checked')).getText();
   }
 
   async save(timeout?: number) {

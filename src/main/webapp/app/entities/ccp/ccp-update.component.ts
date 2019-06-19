@@ -7,6 +7,8 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { ICCP, CCP } from 'app/shared/model/ccp.model';
 import { CCPService } from './ccp.service';
+import { IFormation } from 'app/shared/model/formation.model';
+import { FormationService } from 'app/entities/formation';
 import { IDocument } from 'app/shared/model/document.model';
 import { DocumentService } from 'app/entities/document';
 
@@ -17,16 +19,20 @@ import { DocumentService } from 'app/entities/document';
 export class CCPUpdateComponent implements OnInit {
   isSaving: boolean;
 
+  formations: IFormation[];
+
   documents: IDocument[];
 
   editForm = this.fb.group({
     id: [],
-    title: []
+    title: [],
+    formations: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected cCPService: CCPService,
+    protected formationService: FormationService,
     protected documentService: DocumentService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -37,6 +43,13 @@ export class CCPUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ cCP }) => {
       this.updateForm(cCP);
     });
+    this.formationService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IFormation[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IFormation[]>) => response.body)
+      )
+      .subscribe((res: IFormation[]) => (this.formations = res), (res: HttpErrorResponse) => this.onError(res.message));
     this.documentService
       .query()
       .pipe(
@@ -49,7 +62,8 @@ export class CCPUpdateComponent implements OnInit {
   updateForm(cCP: ICCP) {
     this.editForm.patchValue({
       id: cCP.id,
-      title: cCP.title
+      title: cCP.title,
+      formations: cCP.formations
     });
   }
 
@@ -71,7 +85,8 @@ export class CCPUpdateComponent implements OnInit {
     const entity = {
       ...new CCP(),
       id: this.editForm.get(['id']).value,
-      title: this.editForm.get(['title']).value
+      title: this.editForm.get(['title']).value,
+      formations: this.editForm.get(['formations']).value
     };
     return entity;
   }
@@ -90,6 +105,10 @@ export class CCPUpdateComponent implements OnInit {
   }
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  trackFormationById(index: number, item: IFormation) {
+    return item.id;
   }
 
   trackDocumentById(index: number, item: IDocument) {

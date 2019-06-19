@@ -47,6 +47,9 @@ public class CacheConfiguration {
             createCache(cm, com.tothapplication.domain.Document.class.getName() + ".cCPS");
             createCache(cm, com.tothapplication.domain.CCP.class.getName());
             createCache(cm, com.tothapplication.domain.CCP.class.getName() + ".documents");
+            createCache(cm, com.tothapplication.domain.CCP.class.getName() + ".formations");
+            createCache(cm, com.tothapplication.domain.Formation.class.getName());
+            createCache(cm, com.tothapplication.domain.Formation.class.getName() + ".cCPS");
             // jhipster-needle-ehcache-add-entry
         };
     }

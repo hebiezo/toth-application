@@ -28,7 +28,13 @@ public interface CCPService {
      */
     Page<CCP> findAll(Pageable pageable);
 
-
+    /**
+     * Get all the cCPS with eager load of many-to-many relationships.
+     *
+     * @return the list of entities.
+     */
+    Page<CCP> findAllWithEagerRelationships(Pageable pageable);
+    
     /**
      * Get the "id" cCP.
      *
