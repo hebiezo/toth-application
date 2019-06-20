@@ -16,14 +16,14 @@ import java.util.Optional;
 @Repository
 public interface CCPRepository extends JpaRepository<CCP, Long> {
 
-    @Query(value = "select distinct cCP from CCP cCP left join fetch cCP.formations",
+    @Query(value = "select distinct cCP from CCP cCP",
         countQuery = "select count(distinct cCP) from CCP cCP")
     Page<CCP> findAllWithEagerRelationships(Pageable pageable);
 
-    @Query("select distinct cCP from CCP cCP left join fetch cCP.formations")
+    @Query("select distinct cCP from CCP cCP")
     List<CCP> findAllWithEagerRelationships();
 
-    @Query("select cCP from CCP cCP left join fetch cCP.formations where cCP.id =:id")
+    @Query("select cCP from CCP cCP where cCP.id =:id")
     Optional<CCP> findOneWithEagerRelationships(@Param("id") Long id);
 
 }

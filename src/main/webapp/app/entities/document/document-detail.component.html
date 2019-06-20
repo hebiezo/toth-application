@@ -32,6 +32,12 @@
             </button>
 
             <button type="button"
+                    (click)="download()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-down'"></fa-icon><span jhiTranslate="tothApplicationApp.document.download"> Download</span>
+            </button>
+
+            <button type="button"
                     [routerLink]="['/document', document.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>

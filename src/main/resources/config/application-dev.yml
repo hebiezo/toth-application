@@ -118,4 +118,5 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+file:
+  upload-dir: /home/hebiezo/uploads/

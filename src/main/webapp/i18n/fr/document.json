@@ -19,7 +19,8 @@
       "title": "Title",
       "type": "Type",
       "filename": "Filename",
-      "cCP": "C CP"
+      "cCP": "C CP",
+      "download": "Download"
     }
   }
 }

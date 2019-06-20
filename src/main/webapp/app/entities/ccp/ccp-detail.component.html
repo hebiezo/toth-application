@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{cCP.title}}</span>
                 </dd>
-                <dt><span jhiTranslate="tothApplicationApp.cCP.formation">Formation</span></dt>
-                <dd>
-                    <span *ngFor="let formation of cCP.formations; let last = last">
-                        <a [routerLink]="['/formation', formation?.id, 'view' ]">{{formation.id}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
             </dl>
 
             <button type="submit"

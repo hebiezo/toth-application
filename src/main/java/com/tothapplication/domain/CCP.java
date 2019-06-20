@@ -27,13 +27,6 @@ public class CCP implements Serializable {
     @Column(name = "title")
     private String title;
 
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "ccp_formation",
-               joinColumns = @JoinColumn(name = "ccp_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "formation_id", referencedColumnName = "id"))
-    private Set<Formation> formations = new HashSet<>();
-
     @ManyToMany(mappedBy = "cCPS")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
@@ -59,31 +52,6 @@ public class CCP implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Set<Formation> getFormations() {
-        return formations;
-    }
-
-    public CCP formations(Set<Formation> formations) {
-        this.formations = formations;
-        return this;
-    }
-
-    public CCP addFormation(Formation formation) {
-        this.formations.add(formation);
-        formation.getCCPS().add(this);
-        return this;
-    }
-
-    public CCP removeFormation(Formation formation) {
-        this.formations.remove(formation);
-        formation.getCCPS().remove(this);
-        return this;
-    }
-
-    public void setFormations(Set<Formation> formations) {
-        this.formations = formations;
     }
 
     public Set<Document> getDocuments() {

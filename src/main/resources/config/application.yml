@@ -156,5 +156,4 @@ jhipster:
 # ===================================================================
 
 # application:
-file:
-  upload-dir: /Users/Thomas/uploads/
+
