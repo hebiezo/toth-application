@@ -23,5 +23,7 @@ export class DocumentDetailComponent implements OnInit {
     window.history.back();
   }
 
-  download() {}
+  download() {
+    console.log('ceci est un test');
+  }
 }
