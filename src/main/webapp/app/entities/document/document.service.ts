@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IDocument } from 'app/shared/model/document.model';
-import { map } from 'rxjs/operators';
 
 type EntityResponseType = HttpResponse<IDocument>;
 type EntityArrayResponseType = HttpResponse<IDocument[]>;
@@ -37,7 +36,8 @@ export class DocumentService {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  download(id: number): Observable<Blob> {
-    return this.http.get(`${this.resourceUrl}/${id}/download`, { responseType: 'blob' });
+  download(id: number): Observable<any> {
+    const url: string = `${this.resourceUrl}/${id}/download`;
+    return this.http.post(url, { observe: 'response' });
   }
 }

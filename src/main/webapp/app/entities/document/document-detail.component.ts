@@ -24,6 +24,11 @@ export class DocumentDetailComponent implements OnInit {
   }
 
   download() {
-    console.log('ceci est un test');
+    this.documentService.download(this.document.id).subscribe(blob => {
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'any name + extension';
+      link.click();
+    });
   }
 }

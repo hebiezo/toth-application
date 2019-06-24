@@ -1,11 +1,11 @@
 {
   "home": {
-    "title": "Bienvenue, Java Hipster !",
+    "title": "Bienvenue, Toth !",
     "subtitle": "Ceci est votre page d'accueil",
     "logged": {
       "message": "Vous êtes connecté en tant que \"{{username}}\"."
     },
-    "question": "Si vous avez des questions à propos de JHipster :",
+    "question": "Si vous avez des questions à propos de Toth :",
     "link": {
       "homepage": "Page d'accueil de JHipster",
       "stackoverflow": "JHipster sur Stack Overflow",
@@ -13,7 +13,7 @@
       "chat": "JHipster public chat room",
       "follow": "Suivez @java_hipster sur Twitter"
     },
-    "like": "Si vous aimez JHipster, donnez nous une étoile sur",
+    "like": "Si vous aimez Toth, donnez nous une étoile sur",
     "github": "GitHub "
   }
 }
